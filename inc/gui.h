@@ -5,15 +5,14 @@ class Screen{
     uint16_t w = 240;
     uint16_t h = 240;
     uint8_t section = 24;
-    uint8_t nowSercion = 0;
+    uint8_t nowSection = 0;
     uint8_t wigetRedrawFifo[16];
     uint16_t buffer1[this->w * (this->h / 24)];
     uint16_t buffer2[this->w * (this->h / 24)];
-    void setBufferPixel(uint16_t* x, uint16_t y,);
     void cordicGet();
     void alphaBlend();
-    void lineBrezenheim(uint16_t* x1, uint16_t* y1, uint16_t* x2, uint16_t* y2 uint16_t* buffer, uint16_t* color);
-    void circleBrezenheim(uint16_t* x, uint16_t* y, uint16_t* r, uint8_t portion, uint8_t flags/*1: Fill*/, uint16_t* buffer, uint16_t* color, uint16_t* fill_color, uint16_t* border); 
+    void lineBrezenheim(uint16_t x1, uint16_t y1, uint16_t x2, uint16_t y2 uint16_t* buffer, uint16_t* color);
+    void circleBrezenheim(uint16_t x, uint16_t y, uint16_t r, uint8_t portion, uint8_t flags/*1: Fill*/, uint16_t* buffer, uint16_t* color, uint16_t* fill_color, uint16_t* border); 
     void lineVu(uint16_t* x1, uint16_t* y1, uint16_t* x2, uint16_t* y2 uint16_t* buffer, uint16_t color);
     void circleVu(uint16_t* x, uint16_t* y, uint16_t* r, uint8_t portion, uint8_t flags/*1: Fill*/, uint16_t* buffer, uint16_t* color, uint16_t* fill_color, uint16_t* border);
     //void iconUpload(uint16_t* x, uint16_t* y, uint16_t* h, uint16_t* w, uint16_t* id, uint16_t* buffer);
@@ -51,13 +50,3 @@ class Button : Wiget{
 };
 
 
-13 шаг x 16 шаг у ошибка 0 берем шаг y 
-ошибка 13 - 16 = - 3 y+1 x+1 
-ошибка 10 - 16 = -6  y+1 x+1 
-error -6 + 13 = 7 y+1 x+0 
-error 20 - 16 = 4 y+1 x+1
-error 17 - 16 = 1 y+1 x+1
-error 14 - 16 = -2 y+1 x+1
-error 11 - 16 = -5 y+1 x+1
-error -5 + 13 = 8 y+1 x+0
-error  8 + 13 - 16 =   
