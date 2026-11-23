@@ -10,9 +10,10 @@ class Screen{
     uint16_t buffer1[this->w * (this->h / 24)];
     uint16_t buffer2[this->w * (this->h / 24)];
     void cordicGet();
-    void alphaBlend();
-    void lineBrezenheim(uint16_t x1, uint16_t y1, uint16_t x2, uint16_t y2 uint16_t* buffer, uint16_t* color);
-    void circleBrezenheim(uint16_t x, uint16_t y, uint16_t r, uint8_t portion, uint8_t flags/*1: Fill*/, uint16_t* buffer, uint16_t* color, uint16_t* fill_color, uint16_t* border); 
+    void drawPixelinBuffer(uint16_t x, uint16_t y, uint16_t color, uint8_t alpha, uint16_t* buffer);
+    void alphaBlend(uint16_t bgcolor, uint16_t color, uint8_t alpha);
+    void lineBrezenheim(uint16_t x1, uint16_t y1, uint16_t x2, uint16_t y2, uint16_t* buffer, uint16_t* color, uint8_t alpha);
+    void circleBrezenheim(uint16_t x, uint16_t y, uint16_t r, uint8_t portion, uint8_t flags/*1: Fill*/, uint16_t* buffer, uint16_t* color, uint16_t* fill_color, uint16_t* border, uint8_t* alpha); 
     void lineVu(uint16_t* x1, uint16_t* y1, uint16_t* x2, uint16_t* y2 uint16_t* buffer, uint16_t color);
     void circleVu(uint16_t* x, uint16_t* y, uint16_t* r, uint8_t portion, uint8_t flags/*1: Fill*/, uint16_t* buffer, uint16_t* color, uint16_t* fill_color, uint16_t* border);
     //void iconUpload(uint16_t* x, uint16_t* y, uint16_t* h, uint16_t* w, uint16_t* id, uint16_t* buffer);
