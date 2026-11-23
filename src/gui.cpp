@@ -41,5 +41,16 @@ void Screen::lineBrezenheim(uint16_t x1, uint16_t y1, uint16_t x2, uint16_t y2, 
     }
 }
 void Screen::circleBrezenheim(uint16_t x, uint16_t y, uint16_t r, uint8_t portion, uint8_t flags/*1: Fill*/, uint16_t* buffer, uint16_t* color, uint16_t* fill_color, uint16_t* border){
-    
+    int16_t err = 3 - 2 * r;
+    int16_t thisx = 0;
+    int16_t thisy = r;
+    while(thisx <= thisy){
+        if(err < 0){
+            err += 4 * thisx + 6;
+        }else{
+            err += 4 * (thisx - thisy) + 10;
+            thisy--;
+        }
+        thisx++;
+    }
 }
